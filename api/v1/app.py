@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-api app 
+api app
 
 """
 from flask import Flask, make_response, jsonify
@@ -15,10 +15,12 @@ HBNB_API_PORT = getenv('HBNB_API_PORT')
 app = Flask(__name__)
 app.register_blueprint(app_views)
 
+
 @app.teardown_appcontext
 def teardown(exception):
     """teardown the session"""
     models.storage.close()
+
 
 @app.errorhandler(404)
 def not_found(error):
@@ -28,8 +30,7 @@ def not_found(error):
     """
     err = {
 
-    'error': 'Not found'
-            
+            'error': 'Not found'
     }
     return make_response(jsonify(err), 404)
 
