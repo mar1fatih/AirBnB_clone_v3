@@ -4,13 +4,10 @@ module of api app
 
 """
 from flask import Flask, make_response, jsonify
-import models
+from models import storage
 from api.v1.views import app_views
 from os import getenv
 
-
-HBNB_API_HOST = getenv('HBNB_API_HOST')
-HBNB_API_PORT = getenv('HBNB_API_PORT')
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -19,7 +16,7 @@ app.register_blueprint(app_views)
 @app.teardown_appcontext
 def teardown(exception):
     """teardown the session"""
-    models.storage.close()
+    storage.close()
 
 
 @app.errorhandler(404)
@@ -36,7 +33,10 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    if models.storage_t == 'db':
-        app.run(host=HBNB_API_HOST, port=HBNB_API_PORT, threaded=True)
-    else:
-        app.run(host='0.0.0.0', port='5000', threaded=True)
+    host = getenv("HBNB_API_HOST")
+    port = getenv("HBNB_API_PORT")
+    if host is None:
+        host = '0.0.0.0'
+    if port is None:
+        port = 5000
+    app.run(host=host, port=port, threaded=True)
