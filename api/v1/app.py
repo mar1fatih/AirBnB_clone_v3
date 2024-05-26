@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-api app
+module of api app 
 
 """
 from flask import Flask, make_response, jsonify
