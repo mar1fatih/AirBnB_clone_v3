@@ -10,7 +10,9 @@ from models import storage
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def show_status():
-    """show status"""
+    """
+    show status
+    """
     status = {
             'status': 'ok'
             }
@@ -19,7 +21,9 @@ def show_status():
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def show_stats():
-    """show stats"""
+    """
+    show stats
+    """
     stats = {
             'amenities': storage.count('Amenity'),
             'cities': storage.count('City'),
