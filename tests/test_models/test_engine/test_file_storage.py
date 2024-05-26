@@ -152,8 +152,6 @@ class TestFileStorage(unittest.TestCase):
         storage = FileStorage()
         new_dict = {}
         for key, value in classes.items():
-            if key == "User":
-                continue
             instance = value()
             instance_key = f"{instance.__class__.__name__ }.{instance.id}"
             new_dict[instance_key] = instance

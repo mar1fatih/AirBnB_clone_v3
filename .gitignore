@@ -1,1 +1,9 @@
-pu;
+__pycache__/*.pyc
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pywz
+venv/
+file.json
+cypthon/

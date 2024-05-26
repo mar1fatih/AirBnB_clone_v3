@@ -91,18 +91,27 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_get(self):
         """Test that get returns the correct object"""
-        obj = BaseModel()
-        self.storage.new(obj)
-        self.storage.save()
-        retrieved_obj = self.storage.get(BaseModel, obj.id)
+        storage = models.storage
+        obj = User(email="test@email.com", password="test", first_name="test",
+                   last_name="test")
+        storage.new(obj)
+        storage.save()
+        retrieved_obj = storage.get(User, obj.id)
         self.assertEqual(obj, retrieved_obj)
 
     def test_count(self):
-        """Test that count method returns the number of objects in the database"""
-        obj1 = BaseModel()
-        obj2 = BaseModel()
-        self.storage.new(obj1)
-        self.storage.new(obj2)
-        self.storage.save()
-        count = self.storage.count()
+        """Test that count method returns the number of objects
+          in the database"""
+        storage = models.storage
+        obj1 = User(email="test@email.com", password="test", first_name="test",
+                    last_name="test")
+        obj2 = User(
+            email="test2@email.com",
+            password="test",
+            first_name="test",
+            last_name="test")
+        storage.new(obj1)
+        storage.new(obj2)
+        storage.save()
+        count = storage.count()
         self.assertEqual(count, 2)
