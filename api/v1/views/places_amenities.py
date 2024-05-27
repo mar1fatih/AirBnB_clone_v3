@@ -38,7 +38,7 @@ id_url = '/places/<place_id>/amenities/<amenity_id>'
 
 
 @app_views.route(id_url, methods=['DELETE'], strict_slashes=False)
-def del_amenity(place_id, amenity_id):
+def del_place_amenity(place_id, amenity_id):
     """
     Deletes a Amenity object from a Place relationship
 
