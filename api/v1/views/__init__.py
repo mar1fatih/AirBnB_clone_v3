@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-This module initializes the Blueprint for the v1 API.
-"""
+"""This module initializes the Blueprint for the v1 API."""
 
 from flask import Blueprint
 

@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-a file index.py
-
-"""
+"""a file index.py"""
 from flask import jsonify
 from api.v1.views import app_views
 from models import storage
@@ -10,9 +7,7 @@ from models import storage
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def show_status():
-    """
-    show status
-    """
+    """show objects status"""
     status = {
         'status': 'ok'
     }
@@ -21,9 +16,7 @@ def show_status():
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def show_stats():
-    """
-    show stats
-    """
+    """show objects stats"""
     stats = {
         'amenities': storage.count('Amenity'),
         'cities': storage.count('City'),
