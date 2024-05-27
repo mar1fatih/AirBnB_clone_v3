@@ -30,18 +30,15 @@ def get_place_review(place_id):
     return response
 
 
-url = "/places/<place_id>/reviews"
-
-
 @app_views.route(url, methods=['POST'], strict_slashes=False)
-def add_Review(place_id):
+def add_review(place_id):
     """
     Creates a review object
     """
     us_json = request.get_json(silent=False)
     if us_json is None:
         abort(400, 'Not a JSON')
-    if storage.get('Place', us_json['place_id']) is None:
+    if storage.get('Place', place_id) is None:
         abort(404)
     if 'user_id' not in us_json:
         abort(400, 'Missing user_id')
@@ -63,7 +60,7 @@ url = '/reviews/<review_id>'
 @app_views.route(url, methods=['GET'], strict_slashes=False)
 def get_review_id(review_id):
     """
-    Retrieves an Review object by id
+    Retrieves a review object by id
 
     """
     us_obj = storage.get('Review', str(review_id))
@@ -91,7 +88,7 @@ def del_review(review_id):
 
 
 @app_views.route(url, methods=['PUT'], strict_slashes=False)
-def update_Review(review_id):
+def update_review(review_id):
     """
     Updates a review object
 
