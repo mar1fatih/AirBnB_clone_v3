@@ -3,9 +3,8 @@
 User object that handles all default RESTFul API actions
 """
 from models.user import User
-from models import storage
 from flask import jsonify, abort, request
-from api.v1.views import app_views
+from api.v1.views import app_views, storage
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
