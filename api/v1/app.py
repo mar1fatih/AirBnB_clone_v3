@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module of api app"""
+'''module of api app'''
 from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
@@ -14,13 +14,13 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def teardown(exception):
-    """teardown the session"""
+    '''teardown the session'''
     storage.close()
 
 
 @app.errorhandler(404)
 def not_found(error):
-    """handler for 404 errors"""
+    '''handler for 404 errors'''
     err = {
 
         'error': 'Not found'
