@@ -47,6 +47,7 @@ def add_place(city_id):
         abort(404)
     if 'name' not in us_json:
         abort(400, 'Missing name')
+    us_json['city_id'] = city_id
     new_place = Place(**us_json)
     new_place.save()
     response = jsonify(new_place.to_dict())
