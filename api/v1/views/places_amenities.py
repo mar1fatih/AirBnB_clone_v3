@@ -13,6 +13,7 @@ from flask import jsonify, abort, request
 
 url = "/places/<place_id>/amenities"
 
+
 @app_views.route(url, methods=['GET'], strict_slashes=False)
 def get_place_amenities(place_id):
     """
@@ -31,7 +32,6 @@ def get_place_amenities(place_id):
     for obj in amenities:
         _list.append(obj.to_dict())
     return jsonify(_list)
-
 
 
 id_url = '/places/<place_id>/amenities/<amenity_id>'
