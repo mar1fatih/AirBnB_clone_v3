@@ -7,3 +7,5 @@ __pycache__/*.pyc
 venv/
 file.json
 cypthon/
+7-dump.sql
+10-dump.sql
