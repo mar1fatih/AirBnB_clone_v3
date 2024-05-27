@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""This module initializes the Blueprint for the v1 API."""
-
 from flask import Blueprint
 
 app_views = Blueprint('/api/v1', __name__, url_prefix="/api/v1")
