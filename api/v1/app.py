@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module of api app 
+module of api app
 
 """
 from flask import Flask, make_response, jsonify
@@ -27,7 +27,7 @@ def not_found(error):
     """
     err = {
 
-            'error': 'Not found'
+        'error': 'Not found'
     }
     return make_response(jsonify(err), 404)
 

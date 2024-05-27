@@ -14,8 +14,8 @@ def show_status():
     show status
     """
     status = {
-            'status': 'ok'
-            }
+        'status': 'ok'
+    }
     return jsonify(status)
 
 
@@ -25,12 +25,12 @@ def show_stats():
     show stats
     """
     stats = {
-            'amenities': storage.count('Amenity'),
-            'cities': storage.count('City'),
-            'places': storage.count('Place'),
-            'reviews': storage.count('Review'),
-            'states': storage.count('State'),
-            'users': storage.count('User')
-            }
+        'amenities': storage.count('Amenity'),
+        'cities': storage.count('City'),
+        'places': storage.count('Place'),
+        'reviews': storage.count('Review'),
+        'states': storage.count('State'),
+        'users': storage.count('User')
+    }
 
     return jsonify(stats)

@@ -70,7 +70,7 @@ def create_state():
     return response
 
 
-@app_views.route("/states/<state_id>",  methods=["PUT"], strict_slashes=False)
+@app_views.route("/states/<state_id>", methods=["PUT"], strict_slashes=False)
 def modify_state(state_id):
     """
     updates state object by id
