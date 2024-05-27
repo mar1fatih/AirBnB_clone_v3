@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-User object that handles all default RESTFul API actions
-"""
+"""User object that handles all default RESTFul API actions"""
+
 from models.user import User
 from flask import jsonify, abort, request
 from api.v1.views import app_views, storage
