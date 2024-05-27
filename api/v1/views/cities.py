@@ -51,9 +51,6 @@ def del_city(city_id):
     return data
 
 
-url = '/states/<state_id>/cities'
-
-
 @app_views.route(url, methods=['POST'], strict_slashes=False)
 def add_city(state_id):
     """
