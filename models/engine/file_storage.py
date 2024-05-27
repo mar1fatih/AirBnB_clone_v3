@@ -73,6 +73,8 @@ class FileStorage:
         """retrieve one object"""
         if cls is None or id is None:
             return None
+        if not isinstance(cls, str):
+            cls = cls.__name__
         key = f"{cls}.{id}"
         return self.__objects.get(key)
 
@@ -80,6 +82,8 @@ class FileStorage:
         """count the number of objects in storage"""
         if cls is None:
             return len(self.__objects)
+        if not isinstance(cls, str):
+            cls = cls.__name__
         count = 0
         for key in self.__objects:
             if cls in key:
