@@ -107,3 +107,26 @@ def update_place(place_id):
     response = jsonify(us_obj.to_dict())
     response.status_code = 200
     return response
+
+
+@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+def search_places():
+    """
+    Retrieves a list of all Place objects depending of the JSON in the body
+    of the request
+    """
+
+    us_json = request.get_json(silent=True)
+    if us_json is None:
+        abort(400, 'Not a JSON')
+    _list = []
+    all_objs = storage.all('Place')
+    if us_json:
+        for obj in all_objs.values():
+            if all(key in obj.to_dict().values() for key in us_json.values()):
+                _list.append(obj.to_dict())
+        response = jsonify(_list)
+        response.status_code = 200
+        return response
+    else:
+        abort(400, 'Not a JSON')
