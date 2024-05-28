@@ -19,12 +19,12 @@ def get_city_place(city_id):
     """
 
     _list = []
+    if storage.get('City', city_id) is None:
+        abort(404)
     all_objs = storage.all('Place')
     for obj in all_objs.values():
         if obj.city_id == city_id:
             _list.append(obj.to_dict())
-    if not _list:
-        abort(404)
     response = jsonify(_list)
     response.status_code = 200
     return response
