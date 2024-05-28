@@ -23,8 +23,6 @@ def get_place_review(place_id):
     for obj in all_objs.values():
         if obj.place_id == place_id:
             _list.append(obj.to_dict())
-    if not _list:
-        abort(404)
     response = jsonify(_list)
     response.status_code = 200
     return response
