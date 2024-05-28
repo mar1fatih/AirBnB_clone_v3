@@ -80,4 +80,4 @@ def link_amenity(place_id, amenity_id):
     else:
         place_obj.amenity_ids.append(amenity_id)
     storage.save()
-    return jsonify(amenity_obj.to_dict()), 201
+    return jsonify(amenity_obj.to_dict()), 200
