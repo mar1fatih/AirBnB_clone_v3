@@ -57,7 +57,7 @@ def del_place_amenity(place_id, amenity_id):
             abort(404)
         place_obj.amenities.remove(amenity_obj)
     else:
-        if place_obj.amenity_ids[amenity_obj.id] :
+        if place_obj.amenity_ids[amenity_obj.id]:
             abort(404)
         place_obj.amenity_ids.remove(amenity_id)
     storage.save()
