@@ -17,7 +17,8 @@ def get_place_review(place_id):
     """
     method to retrieve the list of all review objects
     """
-
+    if storage.get('Place', place_id) is None:
+        abort(404)
     _list = []
     all_objs = storage.all('Review')
     for obj in all_objs.values():
