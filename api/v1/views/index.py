@@ -9,7 +9,7 @@ from models import storage
 def show_status():
     '''show objects status'''
     status = {
-        'status': 'ok'
+        'status': 'OK'
     }
     return jsonify(status)
 
